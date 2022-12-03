@@ -1,3 +1,8 @@
+# fastapi
+# uvicorn
+# python-multipart
+# jinja2
+
 import os
 
 import uvicorn
