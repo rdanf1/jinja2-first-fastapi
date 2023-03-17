@@ -27,6 +27,7 @@ app.mount(
 @app.get("/")
 async def test(request: Request):
     return templates.TemplateResponse("test.html", {"request": request, "data": "Test"})
+ 
 
 
 @app.post("/result")
