@@ -31,18 +31,25 @@ app.mount(
 #async def test(request: Request):
 #    return templates.TemplateResponse("test.html", {"request": request, "data": "Test"})
 # DR - Migration's
-#my_list = ['/','/src/','/src/index.html']
+my_list = ['/','/src/','/src/index.html']
 #my_list = ["/"]
-#for text in my_list:
-
-@app.get("/")
-async def test( request: Request ):
-    return templates.TemplateResponse("test.html", {"request": request, "data": "Test"})
+for text in my_list:
+    @app.get(text)
+    async def test( request: Request ):
+        return templates.TemplateResponse("index.html", {"request": request, "data": "Test"})
 """
 @app.get("/src/css/styles.css")
 async def styles():
     return templates.TemplateResponse("css/styles.css")
 """
+@app.get("/src/page2.html")
+async def test( request: Request ):
+    return templates.TemplateResponse("page2.html", {"request": request, "data": "Test"})
+
+@app.get("/src/page3-B-Cards.html")
+async def test( request: Request ):
+    return templates.TemplateResponse("page3-B-Cards.html", {"request": request, "data": "Test"})
+
 # read as text/html => error
 #@app.get("/src/js/script.js")
 #async def test(request: Request):
