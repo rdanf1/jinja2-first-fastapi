@@ -19,14 +19,34 @@ app = FastAPI()
 
 # 템플릿과 스태틱 파일 가져오기
 # Import templates and static files
-templates = Jinja2Templates(directory=f"{main_dir}/templates")
+# Original structure
+# templates = Jinja2Templates(directory=f"{main_dir}/templates")
+# Migration of php site html part (we hard link to its src directory on same server)
+templates = Jinja2Templates(directory=f"{main_dir}/src")
 app.mount(
     "/static", StaticFiles(directory=f"{main_dir}/static"), name="static")
 
+# Original structure
+#@app.get("/")
+#async def test(request: Request):
+#    return templates.TemplateResponse("test.html", {"request": request, "data": "Test"})
+# DR - Migration's
+#my_list = ['/','/src/','/src/index.html']
+#my_list = ["/"]
+#for text in my_list:
 
 @app.get("/")
-async def test(request: Request):
+async def test( request: Request ):
     return templates.TemplateResponse("test.html", {"request": request, "data": "Test"})
+"""
+@app.get("/src/css/styles.css")
+async def styles():
+    return templates.TemplateResponse("css/styles.css")
+"""
+# read as text/html => error
+#@app.get("/src/js/script.js")
+#async def test(request: Request):
+#    return templates.TemplateResponse("js/script.js")
 
 
 @app.post("/result")
