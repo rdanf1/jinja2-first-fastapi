@@ -37,18 +37,30 @@ for text in my_list:
     @app.get(text)
     async def test( request: Request ):
         return templates.TemplateResponse("index.html", {"request": request, "data": "Test"})
-"""
+
 @app.get("/src/css/styles.css")
-async def styles():
-    return templates.TemplateResponse("css/styles.css")
-"""
+async def styles( request: Request ):
+    return templates.TemplateResponse("css/styles.css", {"request": request, "data": "Test"})
+
+@app.get("css/styles.css")
+async def styles( request: Request ):
+    return templates.TemplateResponse("css/styles.css", {"request": request, "data": "Test"})
+
+@app.get("/src/img/img_dan-3.webp")
+async def img_dan( request: Request ):
+    return templates.TemplateResponse("img/img_dan-3.webp", {"request": request, "data": "Test"})
+
 @app.get("/src/page2.html")
-async def test( request: Request ):
+async def page2( request: Request ):
     return templates.TemplateResponse("page2.html", {"request": request, "data": "Test"})
 
 @app.get("/src/page3-B-Cards.html")
-async def test( request: Request ):
+async def page3( request: Request ):
     return templates.TemplateResponse("page3-B-Cards.html", {"request": request, "data": "Test"})
+
+@app.get("/src/php/page3.php")
+async def page3_php( request: Request ):
+    return templates.TemplateResponse("php/page3.php", {"request": request, "data": "Test"})
 
 # read as text/html => error
 #@app.get("/src/js/script.js")
@@ -59,7 +71,6 @@ async def test( request: Request ):
 @app.post("/result")
 async def test(idx: int = Form()):
     return {"idx": idx}
-
 
 # 패키지 경로를 정확히 하기 위해서 아래방식으로 실행
 # Run it in the following way to correct the package path
