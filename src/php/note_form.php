@@ -1,6 +1,7 @@
 <html>
  <head>
   <title>Saisie du message</title>
+  <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
  </head>
  <body style="font-size: 8rem;"> 
  

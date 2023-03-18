@@ -37,7 +37,7 @@ for text in my_list:
     @app.get(text)
     async def test( request: Request ):
         return templates.TemplateResponse("index.html", {"request": request, "data": "Test"})
-
+"""
 @app.get("/src/css/styles.css")
 async def styles( request: Request ):
     return templates.TemplateResponse("css/styles.css", {"request": request, "data": "Test"})
@@ -46,9 +46,10 @@ async def styles( request: Request ):
 async def styles( request: Request ):
     return templates.TemplateResponse("css/styles.css", {"request": request, "data": "Test"})
 
-@app.get("/src/img/img_dan-3.webp")
+vvvv NOT SURE IT RETURN A TEMPLATE (ERROR UTF-8 text/html read...)"""
+@app.get("/img_dan-3.webp")
 async def img_dan( request: Request ):
-    return templates.TemplateResponse("img/img_dan-3.webp", {"request": request, "data": "Test"})
+    return templates.TemplateResponse("/static/img_dan-3.webp", {"request": request, "data": "Test"})
 
 @app.get("/src/page2.html")
 async def page2( request: Request ):
