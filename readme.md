@@ -32,8 +32,8 @@ $ cd <source directory of clone>
 $ uvicorn main:app --reload
 ```
 # On Server 
-<h5> (acting as a httpd damon - can be tested locally too)
-</h5>
+(acting as a httpd damon - can be tested locally too)
+
 ```
 uvicorn main:app --port 8100 --host '::' --proxy-headers --forwarded-allow-ips "::1"
 ```
