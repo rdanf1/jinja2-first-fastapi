@@ -26,7 +26,7 @@ main.py
 # THUS before we MUST do this (after completed pip modules installaions) :<br>
 </h4>
 <code>
-$ cd \<source directory of clone>
+$ cd \<source directory of clone\>
 
 $ uvicorn main:app --reload
 </code>
