@@ -16,7 +16,7 @@ pip install -r requirements.txt
 main.py
 ```
 
-###########  DR    ################
+#  DR - DevOps'S   #
 <h4>
 ## For uvicorn launch to test/deploy<br>
 # Issue : **error Error loading ASGI app. Could not import module "main".**<br>
@@ -27,8 +27,12 @@ main.py
 </h4>
 
 ```
-$ cd \\<source directory of clone\\>
+$ cd <source directory of clone>
 
 $ uvicorn main:app --reload
 ```
-
+# On Server 
+<h5> (acting as a httpd damon - can be tested locally too) </h5>
+```
+uvicorn main:app --port 8100 --host '::' --proxy-headers --forwarded-allow-ips "::1"
+```
