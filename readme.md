@@ -25,7 +25,8 @@ main.py
 #  uvicorn main:app --port 8100 --host '::' --proxy-headers --forwarded-allow-ips "::1"<br>
 # THUS before we MUST do this (after completed pip modules installaions) :<br>
 </h4>
-```sh
+
+```
 $ cd \\<source directory of clone\\>
 
 $ uvicorn main:app --reload
